@@ -72,6 +72,8 @@
             let a=(prompt('nhập tin nhắn'))
             this.memoryText.push(a)
             console.log(this.memoryText)
+            --this.battery;
+            alert('pin điện thoại: ' + this.battery)
 
         }
 
@@ -79,6 +81,8 @@
             for (let i=0;i<this.memoryText.length;i++) {
                 console.log(this.memoryText[i]);
             }
+            --this.battery;
+            alert('pin điện thoại: ' + this.battery)
         }
 
     }
@@ -102,7 +106,7 @@
         Nokia.writeText();
     }
     function GetMes(){
-       Nokia.getMessage()
+        Nokia.getMessage()
     }
 
     // mobile1.getBattlery()
