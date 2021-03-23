@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Mobile</title>
+</head>
+<body>
+<button id="sacpin" name="" onclick="SacPin()">Sạc Pin ĐT</button>
+<button id="batDT" name="" onclick="BatDT()">Bật ĐT</button>
+<button id="tatDT" name="" onclick="TatDT()">Tắt ĐT</button>
+
+<table>
+    <tr>
+        <td>
+            <button id="soantinnhan" onclick="writeMes()">Soạn Tin Nhắn</button>
+        </td>
+        <td></td>
+        <td>
+            <button id="nhantinnhan" onclick="GetMes()" >Nhận Tin Nhắn</button>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+</body>
+<script>
+    class Mobile {
+        battlery;
+        memoryText = [];
+        SendMessage = [];
+        ReceiveMessage = [];
+
+        constructor(num) {
+            this.battery = num;
+        }
+
+        getBattlery() {
+            return this.battlery;
+        }
+
+        turnOn() {
+            alert('Điện thoại đang bật');
+            this.battery--;
+            alert(this.battery)
+        }
+
+        turnOff() {
+            alert('Điện thoại đang tắt');
+            this.battery--;
+            alert(this.battery);
+
+        }
+
+        checkTurnOn() {
+            if (true) {
+                alert('ĐT đang được bật')
+            } else {
+                alert('ĐT đang tắt')
+            }
+        }
+
+        charging() {
+            this.battery++;
+            alert('pin điện thoại: ' + this.battery)
+        }
+
+        writeText() {
+            let a=(prompt('nhập tin nhắn'))
+            this.memoryText.push(a)
+            console.log(this.memoryText)
+
+        }
+
+        getMessage() {
+            for (let i=0;i<this.memoryText.length;i++) {
+                console.log(this.memoryText[i]);
+            }
+        }
+
+    }
+
+    var Nokia = new Mobile(50);
+    var Iphone = new Mobile(90)
+
+    function SacPin() {
+        Nokia.charging();
+    }
+
+    function BatDT() {
+        Nokia.turnOn();
+    }
+
+    function TatDT() {
+        Nokia.turnOff()
+    }
+
+    function writeMes() {
+        Nokia.writeText();
+    }
+    function GetMes(){
+       Nokia.getMessage()
+    }
+
+    // mobile1.getBattlery()
+    // mobile1.checkTurnOn()
+    // mobile1.charging()
+    // mobile1.writeText()
+    // mobile1.sendMessage()
+    // console.log(mobile1.getBattlery(), mobile1.checkTurnOn(), mobile1.charging())
+
+</script>
+</html>
